@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daintry Associates — Planning, Environmental, Building & Governance Advisory</title>
+<meta name="description" content="Daintry Associates provides senior-level, independent advisory and expert services to government and private sector clients across planning, development assessment, environmental health, building regulation, compliance and governance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16191d;
+    --ink-soft:#434a52;
+    --paper:#f4f3ef;
+    --paper-2:#eceae4;
+    --line:#c8c9c6;
+    --orange:#cb4415;       /* burnt orange — primary accent */
+    --orange-deep:#9e340e;  /* deep burnt — active/darker */
+    --orange-bright:#f26a1b;/* lighter, for dark bg */
+    --grad:linear-gradient(100deg,#e43905 0%,#f26a1b 55%,#e74a0c 100%); /* logo gradient */
+    --steel:#33434e;
+    --white:#ffffff;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:18px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(rgba(22,25,29,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(22,25,29,.035) 1px,transparent 1px);
+    background-size:34px 34px;
+  }
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  /* ---- Header ---- */
+  header{
+    border-bottom:1px solid var(--line);
+    background:rgba(244,243,239,.9);
+    backdrop-filter:blur(6px);
+    position:sticky;top:0;z-index:20;
+  }
+  header::after{content:"";display:block;height:3px;background:var(--grad)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand .logo{height:52px;width:auto;display:block}
+  nav{display:flex;gap:26px}
+  nav a{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;
+    text-decoration:none;color:var(--ink-soft);text-transform:uppercase;
+    padding:4px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;
+  }
+  nav a:hover,nav a:focus-visible{color:var(--orange);border-color:var(--orange)}
+
+  /* ---- Hero ---- */
+  .hero{padding:74px 0 60px}
+  .sheet{
+    position:relative;border:1px solid var(--ink);background:var(--white);
+    padding:52px 54px 46px;
+  }
+  .sheet::before,.sheet::after{
+    content:"";position:absolute;width:13px;height:13px;border:1px solid var(--orange);
+  }
+  .sheet::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .sheet::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .hero .eyebrow{margin-bottom:22px}
+  h1{
+    font-family:"Archivo",sans-serif;font-weight:800;
+    font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.04;letter-spacing:-.015em;
+    max-width:16ch;
+  }
+  h1 em{font-style:normal;color:var(--orange)}
+  .lede{
+    margin-top:26px;max-width:60ch;font-size:1.18rem;color:var(--ink-soft);line-height:1.6;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:34px;
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .hero-meta div{min-width:110px}
+  .hero-meta .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-meta .v{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.05rem;margin-top:3px}
+
+  /* ---- Section scaffold ---- */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+  .sec-ref{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--orange);font-weight:600;letter-spacing:.06em}
+  .sec-title{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.01em}
+  .sec-rule{flex:1;height:1px;background:var(--line);align-self:center}
+
+  /* ---- Services ---- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .card{background:var(--paper);padding:28px 26px 30px;position:relative}
+  .card .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.06em}
+  .card h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.14rem;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.2}
+  .card p{font-size:.98rem;color:var(--ink-soft);line-height:1.5}
+  .card::after{content:"";position:absolute;left:0;top:0;width:0;height:3px;background:var(--orange);transition:width .25s ease}
+  .card:hover::after{width:100%}
+
+  /* ---- Approach strip ---- */
+  .approach{background:var(--ink);color:var(--paper);margin-top:0}
+  .approach .wrap{padding-top:52px;padding-bottom:52px}
+  .approach .eyebrow{color:#b9beC4}
+  .approach blockquote{
+    font-family:"Newsreader",serif;font-size:clamp(1.3rem,3vw,1.9rem);
+    line-height:1.4;max-width:30ch;margin:16px 0 0;font-weight:400;
+  }
+  .approach blockquote b{color:var(--orange-bright);font-weight:500}
+  .approach .sig{margin-top:26px;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.05em;color:#b9bec4}
+
+  /* ---- Contact title block ---- */
+  #contact{padding-bottom:70px}
+  .titleblock{
+    border:1.5px solid var(--ink);background:var(--white);
+    display:grid;grid-template-columns:1.35fr 1fr;
+  }
+  .tb-main{padding:36px 38px 34px}
+  .tb-main .eyebrow{margin-bottom:16px}
+  .tb-main h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.015em;line-height:1.1;max-width:16ch}
+  .tb-main p{margin-top:14px;color:var(--ink-soft);max-width:44ch;font-size:1.02rem}
+  .tb-side{border-left:1.5px solid var(--ink);display:flex;flex-direction:column}
+  .tb-row{
+    display:flex;align-items:center;gap:14px;padding:15px 24px;
+    border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);
+    transition:background .15s;
+  }
+  .tb-row:last-child{border-bottom:0}
+  .tb-row:hover{background:rgba(203,68,21,.055)}
+  .tb-row:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+  .tb-ic{flex:none;width:20px;height:20px;fill:var(--orange)}
+  .tb-text{display:flex;flex-direction:column;min-width:0}
+  .tb-row .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .tb-row .v{
+    margin-top:4px;font-family:"Archivo",sans-serif;font-weight:600;
+    font-size:1.02rem;color:var(--ink);word-break:break-word;
+  }
+  .tb-row:hover .v{color:var(--orange)}
+
+  /* Icon buttons (footer) */
+  .social{display:flex;gap:10px}
+  .iconbtn{
+    width:40px;height:40px;border:1px solid var(--line);display:grid;place-items:center;
+    color:var(--ink);transition:background .15s,border-color .15s,color .15s;
+  }
+  .iconbtn svg{width:19px;height:19px;fill:currentColor}
+  .iconbtn:hover,.iconbtn:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none}
+
+  /* ---- Notes / blog cards (REF 03) — same box style as Services ---- */
+  .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .ncard{
+    background:var(--paper);padding:28px 26px 30px;position:relative;
+    display:flex;flex-direction:column;text-align:left;border:0;cursor:pointer;
+    color:var(--ink);font-family:inherit;transition:background .15s;
+  }
+  .ncard::after{content:"";position:absolute;left:0;top:0;width:0;height:3px;background:var(--orange);transition:width .25s ease}
+  .ncard:hover::after{width:100%}
+  .ncard:hover{background:#fff}
+  .ncard:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+  .ncard-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ncard-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.06em}
+  .ncard-date{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);letter-spacing:.03em}
+  .ncard h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.14rem;margin:14px 0 8px;letter-spacing:-.01em;line-height:1.2}
+  .ncard p{font-size:.98rem;color:var(--ink-soft);line-height:1.5;margin:0}
+  .ncard-read{margin-top:18px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);letter-spacing:.04em}
+  .ncard:hover .ncard-read{color:var(--orange)}
+  .ncard-read span{transition:margin-left .18s;display:inline-block}
+  .ncard:hover .ncard-read span{margin-left:6px}
+
+  /* ---- Modal reader ---- */
+  .modal[hidden]{display:none}
+  .modal{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+  .modal-backdrop{position:fixed;inset:0;background:rgba(22,25,29,.55);backdrop-filter:blur(2px)}
+  .modal-card{
+    position:relative;z-index:1;background:var(--white);border:1.5px solid var(--ink);
+    max-width:680px;width:100%;margin:auto;padding:44px 46px 42px;
+    box-shadow:0 24px 60px rgba(22,25,29,.28);
+  }
+  .modal-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad)}
+  .modal-x{
+    position:absolute;top:14px;right:16px;width:34px;height:34px;border:1px solid var(--line);
+    background:none;font-size:22px;line-height:1;color:var(--ink-soft);cursor:pointer;
+    display:grid;place-items:center;transition:.15s;
+  }
+  .modal-x:hover,.modal-x:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none}
+  .modal-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:4px 0 12px}
+  .modal-card h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.015em;line-height:1.14;margin-bottom:20px}
+  .modal-body p{margin-bottom:14px;color:var(--ink-soft);font-size:1.06rem;line-height:1.62}
+  .modal-body em{color:var(--ink-soft)}
+  .modal-body h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.18rem;color:var(--ink);letter-spacing:-.01em;line-height:1.25;margin:26px 0 12px}
+  .modal-body blockquote{
+    margin:18px 0;padding:4px 0 4px 20px;border-left:3px solid var(--orange);
+    color:var(--ink);font-style:italic;font-size:1.04rem;line-height:1.55;
+  }
+  .modal-body blockquote p{margin:0 0 12px 0;color:var(--ink);font-size:1.04rem}
+  .modal-body blockquote p:last-child{margin-bottom:0}
+  .modal-body ul{margin:0 0 16px 0;padding-left:22px}
+  .modal-body li{color:var(--ink-soft);font-size:1.04rem;line-height:1.5;margin-bottom:6px}
+  .modal-body .post-disclaimer{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.95rem}
+
+  /* ---- Footer ---- */
+  footer{border-top:1px solid var(--line);padding:34px 0 42px}
+  .foot-logo{height:64px;width:auto;display:block;margin-bottom:22px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot p{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover{color:var(--orange)}
+
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr 1fr}
+    .notes-grid{grid-template-columns:1fr 1fr}
+    .titleblock{grid-template-columns:1fr}
+    .tb-side{border-left:0;border-top:1.5px solid var(--ink)}
+    .sheet{padding:38px 26px 34px}
+  }
+  @media (max-width:560px){
+    body{font-size:17px}
+    nav{gap:16px}
+    nav a:first-child{display:none}
+    .grid{grid-template-columns:1fr}
+    .notes-grid{grid-template-columns:1fr}
+    .hero{padding:44px 0 40px}
+    .modal{padding:0}
+    .modal-card{min-height:100%;border:0;padding:54px 24px 40px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-mail" viewBox="0 0 24 24"><path d="M2 6.5C2 5.7 2.7 5 3.5 5h17c.8 0 1.5.7 1.5 1.5v11c0 .8-.7 1.5-1.5 1.5h-17C2.7 19 2 18.3 2 17.5v-11Zm2.2.5L12 12l7.8-5H4.2ZM20 8.3l-8 5.1-8-5.1V17h16V8.3Z"/></symbol>
+  <symbol id="ic-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.2.8 24 1.77 24h20.45c.98 0 1.78-.8 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1l-2.22 2.2Z"/></symbol>
+  <symbol id="ic-web" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.63a15.6 15.6 0 0 0-1.33-3.36A8 8 0 0 1 18.9 8ZM12 4.1c.83 1.05 1.5 2.4 1.9 3.9h-3.8c.4-1.5 1.07-2.85 1.9-3.9ZM4.26 14A7.9 7.9 0 0 1 4 12c0-.69.09-1.36.26-2h3.02a17 17 0 0 0 0 4H4.26Zm.83 2h2.6c.33 1.23.79 2.4 1.34 3.36A8 8 0 0 1 5.1 16Zm2.6-8H5.1a8 8 0 0 1 3.94-3.36C8.5 5.6 8.03 6.77 7.7 8ZM12 19.9c-.83-1.05-1.5-2.4-1.9-3.9h3.8c-.4 1.5-1.07 2.85-1.9 3.9Zm2.3-5.9H9.7a15.3 15.3 0 0 1 0-4h4.62a15.3 15.3 0 0 1 0 4Zm.72 5.36c.55-.97 1-2.13 1.34-3.36h2.6a8 8 0 0 1-3.94 3.36ZM16.72 14a17 17 0 0 0 0-4h3.02c.17.64.26 1.31.26 2 0 .69-.09 1.36-.26 2h-3.02Z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="Daintry Associates — home">
+      <img src="da-logo.png" alt="Daintry Associates" class="logo">
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#notes">Notes &amp; Commentary</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="sheet">
+      <p class="eyebrow">Planning · Environmental · Building · Governance Advisory</p>
+      <h1>Independent and grounded <em>New South Wales</em>-centric advice.</h1>
+      <p class="lede">Daintry Associates provides senior-level advisory and expert services across planning, development assessment, environmental health, building regulation, compliance and governance.</p>
+      <div class="hero-meta">
+        <div><div class="k">Established</div><div class="v">2011</div></div>
+        <div><div class="k">Experience</div><div class="v">40+ years</div></div>
+        <div><div class="k">Sectors</div><div class="v">Government · Private</div></div>
+        <div><div class="k">Region</div><div class="v">New South Wales</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-ref">REF 01</span>
+        <span class="sec-title">Services</span>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>Management &amp; Governance Consulting</h3>
+          <p>Organisational reviews, statutory compliance and governance advice for councils and public bodies.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>Conduct &amp; Performance Reviews</h3>
+          <p>Independent code-of-conduct investigations, performance reviews and reporting.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Strategic &amp; Statutory Land Use Planning</h3>
+          <p>Planning proposals, rezoning, assessment and reporting under standard instruments.</p>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <h3>Development Assessment &amp; Compliance</h3>
+          <p>Peer review, DA management and prospects-of-success advice for complex applications.</p>
+        </div>
+        <div class="card">
+          <span class="num">05</span>
+          <h3>Environmental Health &amp; Building Surveying</h3>
+          <p>Design-side advice across food, public health, pollution and Building Code of Australia matters.</p>
+        </div>
+        <div class="card">
+          <span class="num">06</span>
+          <h3>Expert Evidence &amp; Regulatory Review</h3>
+          <p>Expert witness and tribunal experience across the statutory and built environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <div class="approach">
+    <div class="wrap">
+      <p class="eyebrow">The Practice</p>
+      <blockquote>Over 40 years in senior local government leadership and private consulting — delivering <b>independent, practical and strategic</b> advice.</blockquote>
+      <p class="sig">— Informed by extensive statutory, operational, expert witness and tribunal experience.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-ref">REF 02</span>
+        <span class="sec-title">Contact</span>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="titleblock">
+        <div class="tb-main">
+          <p class="eyebrow">Daintry Associates Pty Ltd</p>
+          <h2>Start a conversation about your project.</h2>
+          <p>We take on projects where we are confident we can add real value. Get in touch to discuss whether we can assist.</p>
+        </div>
+        <div class="tb-side">
+          <a class="tb-row" href="tel:+61408463714">
+            <svg class="tb-ic" aria-hidden="true"><use href="#ic-phone"/></svg>
+            <span class="tb-text"><span class="k">Mobile</span><span class="v">0408 463 714</span></span>
+          </a>
+          <a class="tb-row" href="mailto:brett@daintry.com.au">
+            <svg class="tb-ic" aria-hidden="true"><use href="#ic-mail"/></svg>
+            <span class="tb-text"><span class="k">Email</span><span class="v">brett@daintry.com.au</span></span>
+          </a>
+          <a class="tb-row" href="https://www.daintry.com.au" target="_blank" rel="noopener">
+            <svg class="tb-ic" aria-hidden="true"><use href="#ic-web"/></svg>
+            <span class="tb-text"><span class="k">Web</span><span class="v">www.daintry.com.au</span></span>
+          </a>
+          <a class="tb-row" href="https://www.linkedin.com/in/brettdaintry/" target="_blank" rel="noopener">
+            <svg class="tb-ic" aria-hidden="true"><use href="#ic-linkedin"/></svg>
+            <span class="tb-text"><span class="k">LinkedIn</span><span class="v">/in/brettdaintry</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES / BLOG (REF 03) -->
+  <section id="notes">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-ref">REF 03</span>
+        <span class="sec-title">Notes &amp; Commentary</span>
+        <span class="sec-rule"></span>
+      </div>
+      <div id="home-post-list" class="notes-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="da-logo.png" alt="Daintry Associates — Local Government · Strategic and Statutory Planning · Building Surveying" class="foot-logo">
+    <div class="foot">
+      <p>© <span id="yr"></span> Daintry Associates Pty Ltd</p>
+      <div class="social">
+        <a class="iconbtn" href="mailto:brett@daintry.com.au" aria-label="Email Daintry Associates">
+          <svg aria-hidden="true"><use href="#ic-mail"/></svg>
+        </a>
+        <a class="iconbtn" href="https://www.linkedin.com/in/brettdaintry/" target="_blank" rel="noopener" aria-label="Brett Daintry on LinkedIn">
+          <svg aria-hidden="true"><use href="#ic-linkedin"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- POST MODAL -->
+<div class="modal" id="post-modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-x" data-close aria-label="Close article">&times;</button>
+    <p class="modal-eyebrow"><span id="modal-cat"></span><span id="modal-date"></span></p>
+    <h2 id="modal-title"></h2>
+    <div class="modal-body" id="modal-body"></div>
+  </article>
+</div>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+/* ============================================================
+   BLOG POSTS shown on the home page (REF 03).
+   Edit this list to add / change posts. Each post has:
+     ref, category, date, title, summary  (shown in the list)
+     body   full article HTML (shown in the pop-up reader)
+   To add a post, copy one { ... } block. Newest first.
+   ============================================================ */
+const posts = [
+  {
+    ref: "N-002",
+    category: "Building Approvals",
+    date: "5 December 2022",
+    title: "Unauthorised Building Work — Why? What is the remedy?",
+    summary: "NSW's building approval system has become so slow and costly that, in practice, it can push people toward unauthorised building work — yet retrospective approval does not exist. Why that happens, and why a Building Information Certificate is the only remedy.",
+    body: `
+      <p>The concept of the building application and building approval process (development consents &amp; construction certificate or complying development certificate in NSW) is simple: approval is required by law (if it is not exempt development) before you do any building work.</p>
+      <p>In reality, there is nothing simple about the system for obtaining building approval.</p>
+      <p>The biggest change to the building approval process in NSW occurred on 1 July 1998 when private certification was introduced, repealing the old Building Application process.</p>
+      <p>On 15 November 1997 the NSW Legislative Assembly's Hansard records the second reading speech of The Hon. Craig Knowles (Moorebank — Minister for Urban Affairs and Planning, and Minister for Housing), justifying the need for private certification:</p>
+      <blockquote>"The most often stated problems with the system are that it is over-regulated; it is full of duplication; separate approval processes sometimes conflict with one another; there is a lack of certainty; there is a lack of transparency; no-one is accountable; there is little co-ordination; the process and scale of assessment is often out of proportion to the environmental impact; and it all takes too long."</blockquote>
+      <p>In March 2013, The Hon. Paul Stein, AM, QC, observed, in delivery of the inaugural Marla Pearlman Oration:</p>
+      <blockquote>"The EPA Act was an elegant piece of legislation and I pay tribute to the drafters and the Government of the day that steered it into law. As the Minister for Planning acknowledges in the 2012 Green Paper, the Act was reforming and innovative. However, it lasted intact only until 1985. Since then, there have been around 150 amendments, usually preceded by the pronouncement that the amendment would make planning decisions speedier, cheaper and easier and, of course, "cut red tape." We all know that the result was the opposite. The EPA Act has become such a complex web, such a mish-mash, that decisions have become more difficult, slower, and more expensive. The Act has become a statute as complex as the Income Tax Assessment Act. It is very difficult for participants and decision-makers alike to navigate."</blockquote>
+      <p>This oration was almost a decade ago!</p>
+      <p>What has occurred since?</p>
+      <p>In the last decade there have been hundreds more amendments, usually preceded by the pronouncement that the amendment would make planning decisions speedier, cheaper and easier and, of course, "cut red tape."</p>
+      <p>I observe that the system since 1 July 1998 has not evolved to fix:</p>
+      <ul>
+        <li>over-regulation</li>
+        <li>duplication</li>
+        <li>conflict in approvals</li>
+        <li>certainty</li>
+        <li>transparency</li>
+        <li>accountability</li>
+        <li>co-ordination</li>
+        <li>proportional assessment</li>
+        <li>delays</li>
+      </ul>
+      <p>The system is not efficient or effective. The system is not speedier, cheaper and easier than it was when Councils had control under the Building Application process under the Local Government Act 1993. The system is the antithesis of speedier, cheaper and easier.</p>
+      <p>The two-stage development application and construction certificate applications process is failing. The detailed assessment, that should be left to the construction certificate, is dragged into the development application stage. That adds to the costs and complexity in the development application stage. This is no better demonstrated than by the last round of regulatory amendments where the old advice that "the aim of this provision is to ensure that the consent authority does not oblige the applicant to provide these construction details up-front where the applicant may prefer to test the waters first and delay applying for a construction certificate until, or if, development consent is granted" has been removed.</p>
+      <p>It is clear that Councils are increasingly obliging the applicant to provide more construction details up-front, with no certainty that development consent will be granted. These increased costs cannot be avoided as the consent process becomes more onerous.</p>
+      <p>In fact, when one looks at the current backlog of Applications under assessment — that is, if the Councils don't reject them before they get reported as outstanding — the delays are untenable and the system is a shambles. Successive governments have failed to fix the system.</p>
+
+      <h3>What has the approval system got to do with unauthorised building work?</h3>
+      <p>When people are faced with a system that is so dysfunctional, and costly, to the point of being broken, people balance compliance, cost, and risk.</p>
+      <p>In my opinion, the current system actually encourages unauthorised building work — albeit for the further deterrent that is now the NSW Building Commissioner dealing primarily with the bigger issues like Opal Tower and Mascot Tower, which I will not cover here.</p>
+      <p>In my observation, most people seek to carry out minor building works as exempt development or utilise the complying development certificate process under State Environmental Planning Policy (Exempt and Complying Development Codes) 2008.</p>
+      <p>Most people do not seek to carry out unauthorised works that are not capable of approval, nor do most seek to do substandard building work. Most people simply seek to avoid the approval system because the delays and costs are untenable to them.</p>
+      <p>Nevertheless, absent proper oversight, there is a propensity for unauthorised works to have higher rates of non-compliances with planning and building requirements.</p>
+      <p>Also, some genuinely believe that what they wish to build is exempt or complying development, but many mums and dads end up carrying out unauthorised building work, misreading the complex exempt and complying development provisions under State Environmental Planning Policy (Exempt and Complying Development Codes) 2008.</p>
+      <p>The effects of not gaining consent and building approval for building work include:</p>
+      <ul>
+        <li>avoidance of building designers, architects and consultant costs;</li>
+        <li>avoidance of Council contributions;</li>
+        <li>avoidance of Home Owners Warranty Insurance;</li>
+        <li>avoidance of Long Service Levy;</li>
+        <li>avoidance of Council damage security;</li>
+        <li>avoidance of Council development application fees;</li>
+        <li>avoidance of registered certifier fees (CC or CDC and OC);</li>
+        <li>avoidance of critical stage building inspections;</li>
+        <li>avoidance of delays in the system; and</li>
+        <li>finally, the inability to obtain an Occupation Certificate.</li>
+      </ul>
+      <p>The above general list demonstrates — assuming that the building work is otherwise well executed by a competent builder in compliance with relevant Environmental Planning Instruments, Development Control Plan, National Construction Code (NCC) – Building Code of Australia (BCA) and relevant Australian Standards — that the negatives to unauthorised building work are:</p>
+      <ul>
+        <li>the lack of any Home Owners Warranty Insurance (this may affect the future sale of the building);</li>
+        <li>the inability to obtain an Occupation Certificate (this may affect the future sale of the building); and</li>
+        <li>the risk of fines, prosecution for numerous criminal offences, notices and orders and possible civil proceedings by neighbours or Councils.</li>
+      </ul>
+      <p>There are significant time and cost savings in avoiding the dysfunctional approval system and other statutory requirements. However, ..........</p>
+
+      <h3>Unauthorised Building Work is a Criminal Offence</h3>
+      <p>I am not condoning or seeking to be an apologist for unauthorised building work. I am drawing a factual observation. If the application and approval system was more efficient and effective there would be less unauthorised building work.</p>
+      <p>We will never eliminate unauthorised building work because those that wish to carry out unauthorised works, that are not capable of approval, will still carry out unauthorised building works knowing that they could not get approval for what they want and still proceeding despite the possible criminal and civil enforcement actions that may take place.</p>
+      <p>A recent and ongoing example of where it can all go wrong is:</p>
+      <ul>
+        <li>Malass v Strathfield Municipal Council [2020] NSWLEC 168</li>
+        <li>Strathfield Municipal Council v Malass [2021] NSWLEC 112</li>
+        <li>Malass v Strathfield Municipal Council [2021] NSWLEC 115</li>
+        <li>Malass v Strathfield Municipal Council [2022] NSWLEC 116</li>
+        <li>Malass v Strathfield Municipal Council [2022] NSWLEC 131</li>
+        <li>Strathfield Municipal Council v Malass [2022] NSWLEC 132</li>
+        <li>Malass v Strathfield Municipal Council [2022] NSWLEC 1160</li>
+      </ul>
+      <p>This is a real deterrent, as one must not assume that unauthorised works, that are not capable of approval, are capable of remedying under a BIC — see Malass v Strathfield Municipal Council [2022] NSWLEC 1160 in particular.</p>
+
+      <h3>What is the extent of Unauthorised Building Work?</h3>
+      <p>The extent of unauthorised building work is very significant. In every conversation I have with Council officers, from the young Building Surveyors in Council Compliance Departments to Directors and General Managers, they openly admit that they do not have sufficient resources to deal with all the unauthorised building work. In fact, most Councils turn a blind eye to it and only intervene at the insistence of neighbours.</p>
+
+      <h3>What is the remedy to Unauthorised Building Work?</h3>
+      <p>What the NSW Land and Environment Court and the NSW Court of Appeal judgements tell us about remedying unauthorised building work is that you cannot gain retrospective development consents and construction certificates or complying development certificates for building works already undertaken.</p>
+      <p>It follows that because there is no "building approval" there cannot be any Occupation Certificate (OC). Again, the absence of an OC may make selling a building problematic.</p>
+      <p>The only remedy to unauthorised building work is to obtain a Building Information Certificate (BIC) from the consent authority. This is not an approval and this does not authorise a Registered Building Surveyor to issue any Occupation Certificate.</p>
+      <p>A BIC is, in effect, a certificate of non-action to the effect that the Council will not issue orders for seven (7) years from the date of the BIC.</p>
+      <p>The courts have recently reinforced, in their judgements, that retrospective approval of building work is not available, not even through the amendment of a current development consent during the construction period (Ku-ring-gai Council v Buyozo Pty Ltd [2021] NSWCA 177; (2021) 248 LGERA 300).</p>
+      <p>I am reliably informed by senior Council officers that they have seen a surge in BIC Applications. I have seen a surge in inquiries through my practice from solicitors seeking assistance remedying unauthorised building work.</p>
+
+      <h3>In summary</h3>
+      <p>The important thing to take away from this system is that no matter how bad the application and approvals processes are, it is a criminal offence to carry out unauthorised building work.</p>
+      <p>If you are caught, set aside the potential to be fined or prosecuted — the BIC process can be more complex and more expensive. Councils will require fees to be paid equivalent to the original application fees and it is often more costly, as most of the plans and documents you would have had to provide to get approvals will likely be required during the BIC process.</p>
+      <p>In the worst case, events similar to Malass v Strathfield Municipal Council above will play out.</p>
+      <p>Finally, without an occupation certificate and homeowners' warranty insurance, it is more difficult to sell your building.</p>
+
+      <h3>NSW Department of Planning and Environment Practice Note</h3>
+      <p>On 18 November 2022, the NSW Department of Planning and Environment published a Practice Note: Building Information Certificates specifically addressing the use of BICs relating to unauthorised building works.</p>
+
+      <p class="post-disclaimer"><em>Note: This is not legal advice. If you need legal advice I recommend that you find a Local Government and Planning Law / Planning &amp; Environment Law expert accredited by the Law Society of NSW under their Specialist Accreditation Scheme.</em></p>`
+  },
+  {
+    ref: "N-001",
+    category: "Building Regulation",
+    date: "12 April 2021",
+    title: "Spot the difference",
+    summary: "Seventeen years and a string of major inquiries after the Campbell Report, each review of NSW building regulation reaches almost the identical finding. Why the 1998 privatisation of building approvals and inspections needs root-and-branch reform — not another tweak.",
+    body: `
+      <p>The NSW Public Accountability Inquiry into the regulation of building standards, building quality and building disputes has delivered its first report — <em>Regulation of building standards, building quality and building disputes; First report — Report No. 4</em> — a little more than 17 years after the Campbell Report. Seventeen years ago many of us gave evidence to the Joint Select Committee on the Quality of Buildings, following 4 years of private building certification.</p>
+      <p>Many of the 52 Recommendations of the Campbell Report were not adopted by successive governments, including Recommendation No. 1:</p>
+      <blockquote>"A Home Building Compliance Commission (hereafter the Commission) be established forthwith to oversight home building regulation in New South Wales. The Commission is to be separate from the Department of Fair Trading and responsible directly to the Minister for Fair Trading."</blockquote>
+      <p>When parliament considered the privatisation of the building approvals and inspection process, Legislative Assembly Hansard of 15 October 1997 records:</p>
+      <blockquote>"The most often stated problems with the system are that it is over-regulated; it is full of duplication; separate approval processes sometimes conflict with one another; there is a lack of certainty; there is a lack of transparency; no-one is accountable; there is little co-ordination; the process and scale of assessment is often out of proportion to the environmental impact; and it all takes too long."</blockquote>
+      <p>On 1 July 1998, privatisation of building approval and building inspection commenced.</p>
+      <p>The Chairman's foreword in 2002 stated:</p>
+      <blockquote>
+        <p>"This Inquiry into the Quality of Buildings has been conducted against the background that homeowners, individuals and groups from all sectors of the building industry have expressed concerns about the current state of home building in New South Wales. Complaints from a variety of sources have indicated that the current system is inefficient, not coordinated and has resulted in hardships for home buyers as well as for building practitioners.</p>
+        <p>The Committee has received over 200 submissions from all those involved in the property market and has taken substantial evidence from individual homeowners, based on their own experiences. This forms the basis for the case studies detailed in the Report and puts a human face to the issues addressed.</p>
+        <p>The building regulation system should rely on three core pillars. These are responsibility, accountability and liability. Adherence to these pillars should be a major priority in regulating one of the most costly and significant financial products in the market, namely a house. Yet, there is more consumer protection afforded in the purchase of other consumer items, such as a defective motor vehicle, where greater standards of responsibility, accountability and public liability apply to rectification and redress."</p>
+      </blockquote>
+      <p>The Chairman's foreword in 2019 stated:</p>
+      <blockquote>"The public's faith in building standards and building quality in New South Wales is at an all-time low. The lack of standards in the industry has been highlighted in many reports before us, dating back 20 years. It has been a two decade-long experiment with privatisation, deregulation and industry self-regulation. It is unacceptable that to this day comprehensive reform has not been put in place. I hope that this report will help deliver that change."</blockquote>
+      <p>So as we start another year, one can observe that:</p>
+      <blockquote>"the system is over-regulated; it is full of duplication; separate approval processes sometimes conflict with one another; there is a lack of certainty; there is a lack of transparency; no-one is accountable; there is little co-ordination; the process and scale of assessment is often out of proportion to the environmental impact; and it all takes too long."</blockquote>
+      <p>And the quality of buildings — including life safety, structural, weatherproofing and waterproofing outcomes — is demonstrably worse than it was prior to 1 July 1998.</p>
+      <p>Whilst we spend hundreds of hours, and often thousands of dollars, in the development assessment and development consent process — often addressing the finer compliance issues around SEPP 65 and the Apartment Design Guide to deliver high-amenity apartments — none of that counts if the building is a fire trap, structurally defective, not weatherproof and leaks.</p>
+      <p>When you look at over 17 years' worth of inquiries and reports, as listed below, and the abject failure of the system, one cannot tweak it to make it work. It needs root-and-branch reform.</p>
+      <p>The reports:</p>
+      <ul>
+        <li>Campbell Report</li>
+        <li>Maltabarow Report</li>
+        <li>Shergold and Weir Report</li>
+        <li>Michael Lambert Report</li>
+        <li>Shoebridge Report (1st)</li>
+      </ul>
+      <p>If you try to spot the differences between any of these reports and inquiries, there is really very little difference: the fundamentally flawed 1 July 1998 privatisation of building approvals and inspections is an abject failure.</p>`
+  }
+];
+
+(function () {
+  const list = document.getElementById('home-post-list');
+  const modal = document.getElementById('post-modal');
+  const mCat = document.getElementById('modal-cat');
+  const mDate = document.getElementById('modal-date');
+  const mTitle = document.getElementById('modal-title');
+  const mBody = document.getElementById('modal-body');
+  let lastFocus = null;
+
+  // Render as boxes (same style as the Services cards)
+  list.innerHTML = posts.map((p, i) =>
+    `<button class="ncard" data-idx="${i}" aria-haspopup="dialog">
+       <span class="ncard-top"><span class="ncard-num">${String(i + 1).padStart(2, '0')}</span><span class="ncard-date">${p.date}</span></span>
+       <h3>${p.title}</h3>
+       <p>${p.summary}</p>
+       <span class="ncard-read">Read <span aria-hidden="true">&rarr;</span></span>
+     </button>`
+  ).join('');
+
+  function openModal(i) {
+    const p = posts[i];
+    lastFocus = document.activeElement;
+    mCat.textContent = p.category;
+    mDate.textContent = p.date ? ' · ' + p.date : '';
+    mTitle.textContent = p.title;
+    mBody.innerHTML = p.body;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.modal-x').focus();
+    modal.querySelector('.modal-card').scrollTop = 0;
+  }
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  list.addEventListener('click', e => {
+    const btn = e.target.closest('.ncard');
+    if (btn) openModal(+btn.dataset.idx);
+  });
+  modal.addEventListener('click', e => { if (e.target.hasAttribute('data-close')) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+})();
+</script>
+</body>
+</html>
