@@ -57,7 +57,7 @@
   header::after{content:"";display:block;height:3px;background:var(--grad)}
   .bar{display:flex;align-items:center;justify-content:space-between;height:70px}
   .brand{display:flex;align-items:center;text-decoration:none}
-  .brand .logo{height:52px;width:auto;display:block}
+  .brand .logo{height:64px;width:auto;display:block}
   nav{display:flex;gap:26px}
   nav a{
     font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;
@@ -159,7 +159,7 @@
   .iconbtn svg{width:19px;height:19px;fill:currentColor}
   .iconbtn:hover,.iconbtn:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none}
 
-  /* ---- Notes / blog cards (REF 03) — same box style as Services ---- */
+  /* ---- Notes / blog cards (REF 01) — same box style as Services ---- */
   .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
   .ncard{
     background:var(--paper);padding:28px 26px 30px;position:relative;
@@ -191,9 +191,10 @@
   }
   .modal-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad)}
   .modal-x{
-    position:absolute;top:14px;right:16px;width:34px;height:34px;border:1px solid var(--line);
-    background:none;font-size:22px;line-height:1;color:var(--ink-soft);cursor:pointer;
-    display:grid;place-items:center;transition:.15s;
+    position:fixed;top:22px;right:24px;width:44px;height:44px;border:1px solid var(--line);
+    background:var(--white);font-size:26px;line-height:1;color:var(--ink-soft);cursor:pointer;
+    display:grid;place-items:center;transition:.15s;z-index:80;
+    box-shadow:0 8px 24px rgba(22,25,29,.18);
   }
   .modal-x:hover,.modal-x:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none}
   .modal-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:4px 0 12px}
@@ -235,6 +236,7 @@
     .hero{padding:44px 0 40px}
     .modal{padding:0}
     .modal-card{min-height:100%;border:0;padding:54px 24px 40px}
+    .modal-x{top:14px;right:14px;width:42px;height:42px}
   }
   @media (prefers-reduced-motion:reduce){
     *{transition:none!important;scroll-behavior:auto!important}
@@ -256,7 +258,6 @@
       <img src="da-logo.png" alt="Daintry Associates" class="logo">
     </a>
     <nav>
-      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
       <a href="#notes">Notes &amp; Commentary</a>
     </nav>
@@ -269,7 +270,7 @@
     <div class="sheet">
       <p class="eyebrow">Planning · Environmental · Building · Governance Advisory</p>
       <h1>Independent and grounded <em>New South Wales</em>-centric advice.</h1>
-      <p class="lede">Daintry Associates provides senior-level advisory and expert services across planning, development assessment, environmental health, building regulation, compliance and governance.</p>
+      <p class="lede">Daintry Associates provides independent advisory expertise across planning, development assessment, environmental health, building regulation, compliance and governance.</p>
       <div class="hero-meta">
         <div><div class="k">Established</div><div class="v">2011</div></div>
         <div><div class="k">Experience</div><div class="v">40+ years</div></div>
@@ -278,49 +279,6 @@
       </div>
     </div>
   </div>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="sec-ref">REF 01</span>
-        <span class="sec-title">Services</span>
-        <span class="sec-rule"></span>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <span class="num">01</span>
-          <h3>Management &amp; Governance Consulting</h3>
-          <p>Organisational reviews, statutory compliance and governance advice for councils and public bodies.</p>
-        </div>
-        <div class="card">
-          <span class="num">02</span>
-          <h3>Conduct &amp; Performance Reviews</h3>
-          <p>Independent code-of-conduct investigations, performance reviews and reporting.</p>
-        </div>
-        <div class="card">
-          <span class="num">03</span>
-          <h3>Strategic &amp; Statutory Land Use Planning</h3>
-          <p>Planning proposals, rezoning, assessment and reporting under standard instruments.</p>
-        </div>
-        <div class="card">
-          <span class="num">04</span>
-          <h3>Development Assessment &amp; Compliance</h3>
-          <p>Peer review, DA management and prospects-of-success advice for complex applications.</p>
-        </div>
-        <div class="card">
-          <span class="num">05</span>
-          <h3>Environmental Health &amp; Building Surveying</h3>
-          <p>Design-side advice across food, public health, pollution and Building Code of Australia matters.</p>
-        </div>
-        <div class="card">
-          <span class="num">06</span>
-          <h3>Expert Evidence &amp; Regulatory Review</h3>
-          <p>Expert witness and tribunal experience across the statutory and built environment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- APPROACH -->
   <div class="approach">
@@ -335,7 +293,7 @@
   <section id="contact">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-ref">REF 02</span>
+        <span class="sec-ref">REF 01</span>
         <span class="sec-title">Contact</span>
         <span class="sec-rule"></span>
       </div>
@@ -367,11 +325,11 @@
     </div>
   </section>
 
-  <!-- NOTES / BLOG (REF 03) -->
+  <!-- NOTES / BLOG (REF 01) -->
   <section id="notes">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-ref">REF 03</span>
+        <span class="sec-ref">REF 01</span>
         <span class="sec-title">Notes &amp; Commentary</span>
         <span class="sec-rule"></span>
       </div>
@@ -401,7 +359,7 @@
 <div class="modal" id="post-modal" hidden>
   <div class="modal-backdrop" data-close></div>
   <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-x" data-close aria-label="Close article">&times;</button>
+    <button class="modal-x" data-close aria-label="Close article" title="Close article">&times;</button>
     <p class="modal-eyebrow"><span id="modal-cat"></span><span id="modal-date"></span></p>
     <h2 id="modal-title"></h2>
     <div class="modal-body" id="modal-body"></div>
@@ -412,7 +370,7 @@
 
 <script>
 /* ============================================================
-   BLOG POSTS shown on the home page (REF 03).
+   BLOG POSTS shown on the home page (REF 01).
    Edit this list to add / change posts. Each post has:
      ref, category, date, title, summary  (shown in the list)
      body   full article HTML (shown in the pop-up reader)
